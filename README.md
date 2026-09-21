@@ -1,4 +1,4 @@
-# PixProSplitText
+# PixProSplitText 8.5.3
 
 Splits one Pixelmator Pro text layer into any number of columns or rows, each
 on its own layer, named `<original>_1 … <original>_n` and gathered into a group
@@ -8,9 +8,6 @@ layer's name is placed above the block, outside the group.
 Original by Tim McCoy. Rewritten September 2026: the first version split on
 line breaks, which put a whole wrapped paragraph into one column, and it edited
 the original layer in place.
-
-*8.5.3 fixes a first run that could hang with nothing on screen, and makes the version in its dialogs match the app again.*
-
 ## Using it
 
 1. Select a text layer, or run it with nothing selected and choose one from the
