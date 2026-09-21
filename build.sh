@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Build, sign and install PixProSplitText.app — v1.1.0
+# Build, sign and install PixProSplitText.app — v1.2.0
 #
 #   ./build.sh [--no-install]
 #
@@ -28,6 +28,22 @@ fi
 echo "==> compiling $VERSION"
 rm -rf "$APP"
 osacompile -o "$APP" PixProSplitText.applescript
+
+# osacompile does not compile anything: it COPIES Apple's applet stub off this
+# machine, so the stub carries the minimum macOS of whatever system built it.
+# Built on macOS 27, the app refuses to launch on 26 — and the script inside is
+# just text, which would have run anywhere. The stub links only CoreServices
+# and libSystem, so its recorded minimum is lowered to MIN_MACOS here.
+MIN_MACOS=26.0
+echo "==> setting the minimum macOS to $MIN_MACOS"
+VTOOL=$(xcrun -f vtool 2>/dev/null)
+if [[ -n "$VTOOL" ]]; then
+    "$VTOOL" -set-build-version macos "$MIN_MACOS" "$MIN_MACOS" -replace \
+        -output "$APP/Contents/MacOS/applet" "$APP/Contents/MacOS/applet" >/dev/null
+    echo "    $(otool -l "$APP/Contents/MacOS/applet" | awk '/LC_BUILD_VERSION/{f=1} f&&/minos/{print "minos " $2; exit}')"
+else
+    echo "    vtool not found — the app will require the macOS it was built on" >&2
+fi
 
 echo "==> installing the icon"
 # osacompile ships the stock applet icon, and writes an Assets.car whose

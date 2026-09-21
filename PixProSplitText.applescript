@@ -24,7 +24,7 @@
 -- Hidden text layers are ignored throughout. A hidden layer is one the user has
 -- put aside — often the original from an earlier run of this very script.
 
-property scriptVersion : "8.5.1"
+property scriptVersion : "8.5.2"
 property kPixIDs : {"com.apple.pixelmator", "com.pixelmatorteam.pixelmator.x"}
 -- Set by pixTarget() before anything talks to Pixelmator.
 property pixApp : ""
