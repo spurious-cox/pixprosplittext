@@ -62,3 +62,7 @@ Compiles the script, installs the icon, restores the bundle identity that
 The version comes from `property scriptVersion` in the source.
 
 The icon is built from the master artwork with `pixpro_icon SplitText`.
+
+## Problems or suggestions
+
+Open an issue: https://github.com/spurious-cox/pixprosplittext/issues
