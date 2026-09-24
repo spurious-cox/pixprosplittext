@@ -1,4 +1,4 @@
-# PixProSplitText 8.5.3
+# PixProSplitText 8.5.4
 
 Splits one Pixelmator Pro text layer into any number of columns or rows, each
 on its own layer, named `<original>_1 … <original>_n` and gathered into a group

@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Build, sign and install PixProSplitText.app — v1.3.0
+# Build, sign and install PixProSplitText.app — v1.4.0
 #
 #   ./build.sh [--no-install]
 #
@@ -62,6 +62,12 @@ d.update({
 })
 plistlib.dump(d, open(p, "wb"))
 PY
+
+# The macOS 26+ icon. The stock Assets.car and its CFBundleIconName are
+# removed above; this installs an Assets.car holding the app's own Icon
+# Composer icon, which macOS 26+ uses instead of the .icns (still what
+# macOS 13-25 show). See ~/bin/glass_icon.
+~/bin/glass_icon "$APP" icon/AppIcon.icon
 
 echo "==> signing with Developer ID"
 codesign --force --deep --timestamp --options runtime \
