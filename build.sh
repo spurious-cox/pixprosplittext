@@ -40,6 +40,9 @@ echo "==> installing the icon"
 # the bundle and never be used. Both have to go.
 cp PixProSplitText.icns "$APP/Contents/Resources/PixProSplitText.icns"
 rm -f "$APP/Contents/Resources/applet.icns" "$APP/Contents/Resources/Assets.car"
+# The help Flache and the Read Me button open: <App>-README.txt in Resources,
+# made from README.md so there is one source.
+/usr/bin/python3 "$HOME/My_Applications/_signing/pixpro_readme_txt.py" README.md "$APP/Contents/Resources/PixProSplitText-README.txt"
 
 echo "==> restoring bundle identity (osacompile drops it)"
 /usr/bin/python3 - "$APP" "$VERSION" <<'PY'
