@@ -1,4 +1,4 @@
-# PixProSplitText 8.5.4
+# PixProSplitText 8.6.0
 
 Splits one Pixelmator Pro text layer into any number of columns or rows, each
 on its own layer, named `<original>_1 … <original>_n` and gathered into a group
@@ -62,6 +62,16 @@ Compiles the script, installs the icon, restores the bundle identity that
 The version comes from `property scriptVersion` in the source.
 
 The icon is the master artwork placed on Apple's 824-in-1024 macOS icon grid.
+
+## Updates
+
+When it opens, PixProSplitText asks GitHub whether a newer release exists — at most
+once a day, giving up after three seconds — and says nothing if you are up to
+date or offline. If there is a newer one, it shows in the first dialog:
+
+    Update available: X.Y.Z  —  brew upgrade --cask pixprosplittext
+
+It only ever reports: nothing is downloaded and nothing replaces itself.
 
 ## Problems or suggestions
 
